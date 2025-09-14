@@ -1,3 +1,22 @@
 import { Routes } from '@angular/router';
+import AboutPageComponent from './pages/about-page/about-page.component';
+import PricingPageComponent from './pages/pricing-page/pricing-page.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: 'about',
+        loadComponent: () => import('./pages/about-page/about-page.component')
+    },
+    {
+        path: 'pricing',
+        loadComponent: () => import('./pages/pricing-page/pricing-page.component')
+    },
+    {
+        path: 'contact',
+        loadComponent: () => import('./pages/contact-page/contact-page.component')
+    },
+    {
+        path: '**',
+        redirectTo: 'about'
+    }
+];
