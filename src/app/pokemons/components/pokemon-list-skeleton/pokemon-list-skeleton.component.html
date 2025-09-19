@@ -1,0 +1,16 @@
+<div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-5">
+
+    @for(pokemon of pokemonsFaker; track pokemon){
+    <div class="bg-gray-500/25 rounded-lg h-44 shadow-md flex flex-col p-4 items-center
+        justify-center cursor-pointer">
+        <!-- Pokemon image -->
+        <div class="w-24 h-24 rounded-full bg-gray-600 animate-pulse" ></div>
+        <!-- Pokemon name -->
+        <div class="flex text-center mt-2">
+            <div class="w-20 h-4 rounded-full bg-gray-600 animate-pulse" ></div>
+        </div>
+    </div>
+
+    }
+
+</div>

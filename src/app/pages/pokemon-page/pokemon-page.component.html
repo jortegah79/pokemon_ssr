@@ -1,0 +1,49 @@
+<main class="w-4xl mx-auto mt-6">
+    <section class=" grid grid-cols-1 md:grid-cols-2 ">
+        <div class="bg-amber-300 text-center text-black flex flex-col items-center justify-center">
+            <img class="w-80 h-80 shadow-lg shadow-amber-700 rounded-3xl mb-2" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_default" [alt]="pokemon()!.name">
+            <audio class="mt-2" src="{{ pokemon()!.cries.latest }}" controls></audio>
+            <audio class="mt-2" src="{{ pokemon()!.cries.legacy }}" controls></audio>
+        </div>
+        <div class="bg-amber-300  text-black border-s-6 border-amber-600   p-4  flex flex-col gap-2 align-start justify-start text-start">
+            <h1 class="text-2xl font-bold"><b>Nombre</b>: {{ pokemon()!.name |titlecase }}</h1>
+            <p class="text-sm"><b>Altura</b>: {{ pokemon()!.height }} m</p>
+            <p class="text-sm"><b>Peso</b>: {{ pokemon()!.weight }} kg</p>
+            <p class="text-sm"><b>Experiencia</b>: {{ pokemon()!.base_experience }} xp</p>
+            <hr class="w-full border-amber-600 border-2">
+            <legend class="text-xl font-bold"><b>Estadísticas</b></legend>
+            @for(stat of pokemon()!.stats;track stat.stat.name){
+            <p class="text-sm"><strong>{{ stat.stat.name | titlecase }}:</strong> {{ stat.base_stat }}</p>
+            }
+            <legend class="text-xl font-bold"><b>Tipos</b></legend>
+            <div class="flex gap-2 flex-row"> 
+                        @for(type of pokemon()!.types;track type.type){
+            <span class="text-sm inline-block">{{ type.type.name | titlecase }}</span>
+            }
+            </div>
+            <legend class="text-xl font-bold"><b>Habilidades</b></legend>
+            <div class="flex gap-2 flex-row"> 
+            @for(ability of pokemon()!.abilities;track ability.ability!.name){
+            <span class="text-sm inline-block">{{ ability.ability!.name | titlecase }}</span>
+            }
+            </div>
+        </div>
+    </section>
+    <section>
+        <legend class="text-2xl font-bold mt-2 "><b>Imágenes</b></legend>
+         <div class="flex flex-wrap gap-4 mt-2">
+             <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_default" [alt]="pokemon()!.name">
+             <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_shiny" [alt]="pokemon()!.name">
+             <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.showdown!.front_shiny" [alt]="pokemon()!.name">
+             <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.showdown!.front_default" [alt]="pokemon()!.name">
+             <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.dream_world!.front_default" [alt]="pokemon()!.name">           
+         </div>
+        <h2 class="text-2xl font-bold mt-4"><b>Movimientos</b></h2>
+        <div class="flex gap-2 flex-row flex-wrap"> 
+        @for(move of pokemon()!.moves;track move.move.name){
+        <span class="text-lg inline-block bg-amber-400 text-blue-800 p-2 rounded-md">{{ move.move.name | titlecase }}</span>
+        }
+        </div>
+
+    </section>
+</main>
