@@ -1,6 +1,6 @@
-<main class="w-4xl mx-auto mt-6">
+<main class="w-full md:w-4xl mx-auto mt-6">
     <section class=" grid grid-cols-1 md:grid-cols-2 ">
-        <div class="bg-amber-300 text-center text-black flex flex-col items-center justify-center">
+        <div class="bg-amber-300 text-center text-black flex flex-col items-center justify-center p-4">
             <img class="w-80 h-80 shadow-lg shadow-amber-700 rounded-3xl mb-2" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_default" [alt]="pokemon()!.name">
             <audio class="mt-2" src="{{ pokemon()!.cries.latest }}" controls></audio>
             <audio class="mt-2" src="{{ pokemon()!.cries.legacy }}" controls></audio>
@@ -30,16 +30,16 @@
         </div>
     </section>
     <section>
-        <legend class="text-2xl font-bold mt-2 "><b>Imágenes</b></legend>
-         <div class="flex flex-wrap gap-4 mt-2">
+        <legend class="text-2xl font-bold m-6 mb-2 "><b>Imágenes</b></legend>
+         <div class="flex flex-wrap gap-4 mt-2 justify-center">
              <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_default" [alt]="pokemon()!.name">
              <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.['official-artwork']!.front_shiny" [alt]="pokemon()!.name">
              <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.showdown!.front_shiny" [alt]="pokemon()!.name">
              <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.showdown!.front_default" [alt]="pokemon()!.name">
              <img class="w-40 h-40" [src]="pokemon()!.sprites.other?.dream_world!.front_default" [alt]="pokemon()!.name">           
          </div>
-        <h2 class="text-2xl font-bold mt-4"><b>Movimientos</b></h2>
-        <div class="flex gap-2 flex-row flex-wrap"> 
+        <h2 class="text-2xl font-bold  m-6 mb-2"><b>Movimientos</b></h2>
+        <div class="flex gap-2 flex-row flex-wrap justify-center"> 
         @for(move of pokemon()!.moves;track move.move.name){
         <span class="text-lg inline-block bg-amber-400 text-blue-800 p-2 rounded-md">{{ move.move.name | titlecase }}</span>
         }
